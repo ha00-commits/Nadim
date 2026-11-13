@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.Spinner;
@@ -43,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         ad.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spKeyboard.setAdapter(ad);
 
-        sbSpeed.setProgress(prefs.getInt("speed", 300) - 1);
+        sbSpeed.setProgress(prefs.getInt("speed", 200) - 1);
         swAuto.setChecked(prefs.getBoolean("auto", false));
         etName.setText(prefs.getString("name", ""));
         etWords.setText(prefs.getString("words", ""));
@@ -57,9 +56,16 @@ public class MainActivity extends AppCompatActivity {
 
         findViewById(R.id.btnOverlay).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent i = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
-                        Uri.parse("package:" + getPackageName()));
-                startActivity(i);
+                startActivity(new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                        Uri.parse("package:" + getPackageName())));
+            }
+        });
+
+        findViewById(R.id.btnImport).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_GET_CONTENT);
+                i.setType("text/*");
+                startActivityForResult(i, 77);
             }
         });
 
@@ -76,4 +82,24 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-  }
+
+    @Override
+    protected void onActivityResult(int req, int res, Intent data) {
+        super.onActivityResult(req, res, data);
+        if (req == 77 && res == RESULT_OK && data != null && data.getData() != null) {
+            try {
+                java.io.InputStream in = getContentResolver().openInputStream(data.getData());
+                java.io.File out = new java.io.File(getFilesDir(), "words.txt");
+                java.io.FileOutputStream fos = new java.io.FileOutputStream(out);
+                byte[] buf = new byte[4096];
+                int n;
+                while ((n = in.read(buf)) > 0) fos.write(buf, 0, n);
+                fos.close();
+                in.close();
+                Toast.makeText(this, "تم استيراد الكلمات ✅", Toast.LENGTH_SHORT).show();
+            } catch (Exception e) {
+                Toast.makeText(this, "فشل: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+    }
