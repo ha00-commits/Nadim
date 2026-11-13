@@ -111,6 +111,13 @@
             android:layout_marginTop="14dp"
             android:text="💾 حفظ"/>
 
+        <Button
+            android:id="@+id/btnImport"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="8dp"
+            android:text="📂 استيراد كلمات من ملف (.txt)"/>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
