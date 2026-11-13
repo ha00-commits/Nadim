@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0A0A0A">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="نديم الصمت"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="صانع التطبيق: أبوجبل ابن الكوت  •  @P71GP"
+            android:textColor="#8A8A90"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:paddingBottom="16dp"/>
+
+        <Button
+            android:id="@+id/btnAccess"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="⚙️ تفعيل خدمة الكتابة"/>
+
+        <Button
+            android:id="@+id/btnOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="8dp"
+            android:text="🪟 صلاحية الظهور فوق التطبيقات"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⌨️ الكيبورد المستهدف"
+            android:textColor="#FFFFFF"
+            android:paddingTop="18dp"/>
+        <Spinner
+            android:id="@+id/spKeyboard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⏱️ سرعة الكتابة (1-500)"
+            android:textColor="#FFFFFF"
+            android:paddingTop="14dp"/>
+        <SeekBar
+            android:id="@+id/sbSpeed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="499"
+            android:progress="299"/>
+
+        <Switch
+            android:id="@+id/swAuto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🔁 الافشار التلقائي (يفشر لحاله)"
+            android:textColor="#FFFFFF"
+            android:paddingTop="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🎯 اسم الشخص (يطلع عشوائي داخل الجملة)"
+            android:textColor="#FFFFFF"
+            android:paddingTop="12dp"/>
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="مثلاً: حسين"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#666666"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📝 كلمات/جمل (كل واحدة بسطر)"
+            android:textColor="#FFFFFF"
+            android:paddingTop="12dp"/>
+        <EditText
+            android:id="@+id/etWords"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:gravity="top"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#666666"
+            android:background="#16161A"
+            android:padding="10dp"
+            android:hint="اكتب جملك هنا..."/>
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="14dp"
+            android:text="💾 حفظ"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🛠️ إضافة الكيبوردات: تحت الصيانة"
+            android:textColor="#FF9F0A"
+            android:textSize="13sp"
+            android:gravity="center"
+            android:paddingTop="18dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="الضغط مرتين على زر رفع الصوت = كتابة\nبدون تغيير الصوت وبدون ظهور الشاشة"
+            android:textColor="#8A8A90"
+            android:textSize="13sp"
+            android:gravity="center"
+            android:paddingTop="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="حقوق صانع التطبيق: أبوجبل ابن الكوت — @P71GP\nهذا التطبيق ملكي، وأي تعديل أو إعادة نشر دون إذن ممنوع."
+            android:textColor="#5A5A62"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:paddingTop="24dp"
+            android:paddingBottom="20dp"/>
+    </LinearLayout>
+</ScrollView>
